@@ -16,6 +16,9 @@ import Faq from "./components/Faq";
 import Blogs from "./components/Blogs";
 import Workouts from "./components/Workouts";
 import AdminLogin from "./components/admin/AdminLogin";
+import AdminBlogs from "./components/admin/AdminBlogs";
+import Chest from "./components/Chest";
+
 function App() {
   return (
     <Routes>
@@ -33,7 +36,9 @@ function App() {
       <Route path="/faq" element={<Faq />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/workouts" element={<Workouts />} />
+      <Route path="/workouts/chest" element={<Chest />} />
       <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/blog" element={<AdminBlogs />} />
     </Routes>
   );
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Upload</title>
+    <style>
+      img {
+        max-width: 300px;
+        max-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Upload</h1>
+
+    <form id="uploadForm">
+      <input type="file" id="imageInput" />
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="imageContainer"></div>
+
+    <script>
+      const uploadForm = document.getElementById("uploadForm");
+      const imageInput = document.getElementById("imageInput");
+      const imageContainer = document.getElementById("imageContainer");
+
+      uploadForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const imageData = e.target.result;
+
+          const image = new Image();
+          image.src = imageData;
+
+          imageContainer.innerHTML = "";
+          imageContainer.appendChild(image);
+        };
+
+        reader.readAsDataURL(file);
+      });
+    </script>
+  </body>
+</html>

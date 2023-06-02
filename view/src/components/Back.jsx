@@ -44,7 +44,7 @@ const Back = () => {
             </Link>
           </g>
           <g className="arms">
-            <Link to="arms">
+            <Link to="/workouts/arms">
               <path
                 d="M111 211L93.2222 232L79 274L95 267L111 246V211Z"
                 fill="#FF0000"
@@ -88,7 +88,7 @@ const Back = () => {
             </Link>
           </g>
           <g className="legs">
-            <Link to="legs">
+            <Link to="/workouts/legs">
               <path
                 d="M184.63 345L124.761 375.145L123 409.597L130.043 434L195.196 418.21L204 396.677L184.63 345Z"
                 fill="#C24141"
