@@ -1,8 +1,9 @@
-// import "./login-form-validation";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 
 const Login = () => {
+  // FORM VALIDATION
   const initialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -41,14 +42,49 @@ const Login = () => {
       errors.password = "Password is required!";
     } else if (values.password.length < 4) {
       errors.password = "Passwords must be greater than 4 characters";
-    } else navigate("/user");
+    }
     return errors;
+  };
+
+  //   //   BACKEND ENDPOINTS
+  //   const fetchAdmin = async () => {
+  //     const data = await axios.post("/admin/login");
+  //     console.log(data);
+  //   };
+  //   useEffect(() => {
+  //     fetchAdmin();
+  //   }, []);
+
+  const PostData = async (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+
+    const { email, password } = formValues;
+
+    const res = await fetch("/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (res.status === 500 || !data) {
+      setFormValues(initialValues);
+    } else {
+      navigate("/workouts");
+    }
   };
 
   return (
     <>
       <div className="container mx-auto h-screen flex justify-center items-center">
         <form
+          method="POST"
           onSubmit={handleSubmit}
           className="inline-block login-form px-28 py-16"
         >
@@ -86,17 +122,13 @@ const Login = () => {
             </div>
           </div>
           <div className="sign-in-forgot-password flex flex-col">
-            <button className="text-center text-white font-sans p-3 sign-in">
+            <button
+              className="text-center text-white font-sans p-3 sign-in"
+              onClick={PostData}
+            >
               Sign In
             </button>
           </div>
-
-          <h2 className=" flex justify-center font-sans text-center p-4 gap-1">
-            Do not have an account?
-            <Link to="/signup" className="font-sans font-bold underline">
-              Sign Up
-            </Link>
-          </h2>
         </form>
       </div>
     </>

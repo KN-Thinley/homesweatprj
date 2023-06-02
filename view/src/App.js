@@ -15,7 +15,7 @@ import Faq from "./components/Faq";
 // import Footer from "./components/Footer";
 import Blogs from "./components/Blogs";
 import Workouts from "./components/Workouts";
-
+import AdminLogin from "./components/admin/AdminLogin";
 function App() {
   return (
     <Routes>
@@ -33,6 +33,7 @@ function App() {
       <Route path="/faq" element={<Faq />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/workouts" element={<Workouts />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
     </Routes>
   );
 }

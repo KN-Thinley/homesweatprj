@@ -33,6 +33,9 @@ const loginAdmin = async (req, res) =>{
         const admin = await adminModel.findbyCredenbtials(req.body.email, req.body.password);
 
         //checking the admins credentials
+        res.cookie(
+            "SessionId", "cookie-val",
+        )
         res.status(200).send({message:admin});
     } catch (error) {
         res.status(500).json({error : error.message});  

@@ -1,26 +1,26 @@
-const express = require("express")
+const express = require("express");
 const app = express();
 
 //adding emailRoutes
 
 //directory match...
 const path = require("path");
+const cookieParser = require("cookie-parser");
 
-
-
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //serves static page
 app.use(express.static(path.join(__dirname, "/view")));
 
 //database
-require("./database/mongoose")
+require("./database/mongoose");
 
 //routes
 const userRouter = require("./route/userRoutes");
 const adminRouter = require("./route/adminRoute");
 
-app.use(userRouter)
-app.use(adminRouter)
-module.exports = app
+app.use(cookieParser());
+app.use(userRouter);
+app.use(adminRouter);
+module.exports = app;
