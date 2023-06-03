@@ -1,16 +1,16 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Chestsvg from "../components/svg/Chestsvg";
+import Backsvg from "../components/svg/Backsvg";
 
-const Chest = () => {
+const Backs = () => {
   return (
     <>
       <Navbar />
       <div className="content">
         <div className="chestworkouts flex flex-col justify-center items-center p-24">
-          <Chestsvg />
+          <Backsvg />
           <h1 className="font-sans text-white text-5xl font-medium pt-4">
-            Chest Workouts
+            Back Workouts
           </h1>
         </div>
       </div>
@@ -20,4 +20,4 @@ const Chest = () => {
   );
 };
 
-export default Chest;
+export default Backs;

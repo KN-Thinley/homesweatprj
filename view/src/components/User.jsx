@@ -14,23 +14,48 @@ const User = () => {
   return (
     <main>
       <section className="marketing-slogan-section" id="home">
-        <nav className="flex items-center justify-center gap-10 text-white text-3xl pt-4 expand-lg">
+        {/* <nav className="flex items-center justify-center gap-10 text-white text-3xl pt-12 expand-lg">
           <div className="logo flex items-center justify-center gap-2">
-            <Link to="/" className="flex justify-center items-center gap-2">
+            <Link to="/user" className="flex justify-center items-center gap-2">
               <img src={logo} alt="#" className="h-8" />
               <h1>Home Sweat</h1>
             </Link>
           </div>
           <div className="lists flex items-center justify-center gap-2">
             <ul className="text-white flex">
-              <div className="ul-lists flex gap-12 py-2">
-                <Link to="/">Home</Link>
+              <div className="ul-lists flex gap-24 py-2">
+                <Link to="/user">Home</Link>
                 <Link to="/about-us">About Us</Link>
                 <Link to="/workouts">Workouts</Link>
                 <Link to="/blogs">Blogs</Link>
                 <Link to="/faq">FAQ</Link>
               </div>
               <div className="get-started py-2 px-6">
+                <Link to="/dashboard">DASHBOARD</Link>
+              </div>
+            </ul>
+          </div>
+        </nav> */}
+        <nav
+          className="flex items-center justify-center gap-20 text-white text-3xl pt-12 expand-lg"
+          id="content"
+        >
+          <div className="logo flex items-center justify-center gap-2">
+            <Link to="/user" className="flex justify-center items-center gap-2">
+              <img src={logo} alt="/user" className="h-8" />
+              <h1>Home Sweat</h1>
+            </Link>
+          </div>
+          <div className="lists flex items-center justify-center">
+            <ul className="text-white flex">
+              <div className="ul-lists flex gap-24 py-1">
+                <Link to="/user">Home</Link>
+                <Link to="/about-us">About Us</Link>
+                <Link to="/workouts">Workouts</Link>
+                <Link to="/blogs">Blogs</Link>
+                <Link to="/faq">FAQ</Link>
+              </div>
+              <div className="get-started py-1 px-10">
                 <Link to="/dashboard">DASHBOARD</Link>
               </div>
             </ul>

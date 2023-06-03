@@ -18,6 +18,11 @@ import Workouts from "./components/Workouts";
 import AdminLogin from "./components/admin/AdminLogin";
 import AdminBlogs from "./components/admin/AdminBlogs";
 import Chest from "./components/Chest";
+import Backs from "./components/Backs";
+import Abs from "./components/Abs";
+import Arms from "./components/Arms";
+import Legs from "./components/Legs";
+import DashboardCalendar from "./components/DashboardCalendar";
 
 function App() {
   return (
@@ -37,8 +42,13 @@ function App() {
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/workouts" element={<Workouts />} />
       <Route path="/workouts/chest" element={<Chest />} />
+      <Route path="/workouts/backs" element={<Backs />} />
+      <Route path="/workouts/arms" element={<Arms />} />
+      <Route path="/workouts/legs" element={<Legs />} />
+      <Route path="/workouts/abs" element={<Abs />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/blog" element={<AdminBlogs />} />
+      <Route path="/calendar" element={<DashboardCalendar />} />
     </Routes>
   );
 }
