@@ -31,8 +31,9 @@ const SignUp = () => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-      navigate("/user");
+      //save form values to session storage
+      sessionStorage.setItem("formValues", JSON.stringify(formValues));
+      navigate("/sexuality");
     }
   }, [formErrors, formValues, isSubmit, navigate]);
 
@@ -53,7 +54,7 @@ const SignUp = () => {
     }
     if (!values.password) {
       errors.password = "Password is required!";
-    } else if (values.password.length < 4) {
+    } else if (values.password.length < 8) {
       errors.password = "Passwords must be greater than 4 characters";
     }
     if (values.rpassword !== values.password) {
@@ -75,7 +76,7 @@ const SignUp = () => {
             Sign Up
           </h1>
           <div className="flex flex-col items-center gap-4 font-sans">
-            <div className="username">
+            <div className="username flex flex-col">
               <input
                 name="fullname"
                 type="text"
@@ -88,7 +89,7 @@ const SignUp = () => {
                 {formErrors.fullname}
               </small>
             </div>
-            <div className="email">
+            <div className="email flex flex-col">
               <input
                 name="email"
                 type="email"
@@ -101,7 +102,7 @@ const SignUp = () => {
                 {formErrors.email}
               </small>
             </div>
-            <div className="password">
+            <div className="password flex flex-col">
               <input
                 name="password"
                 type="password"
@@ -114,7 +115,7 @@ const SignUp = () => {
                 {formErrors.password}
               </small>
             </div>
-            <div className="retypepassword">
+            <div className="retypepassword flex flex-col">
               <input
                 name="rpassword"
                 type="password"

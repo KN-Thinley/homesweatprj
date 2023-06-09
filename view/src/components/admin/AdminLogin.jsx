@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
 
 const Login = () => {
   // FORM VALIDATION
@@ -46,15 +45,6 @@ const Login = () => {
     return errors;
   };
 
-  //   //   BACKEND ENDPOINTS
-  //   const fetchAdmin = async () => {
-  //     const data = await axios.post("/admin/login");
-  //     console.log(data);
-  //   };
-  //   useEffect(() => {
-  //     fetchAdmin();
-  //   }, []);
-
   const PostData = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -76,7 +66,7 @@ const Login = () => {
     if (res.status === 500 || !data) {
       setFormValues(initialValues);
     } else {
-      navigate("/workouts");
+      navigate("/admin/blog");
     }
   };
 

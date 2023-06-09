@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ReactPlayer from "react-player";
 import grouphoto from "../assests/GroupPhotos/TheGroup_11zon.png";
 const AboutUs = () => {
   return (
@@ -16,6 +17,9 @@ const AboutUs = () => {
           <h1 className="font-sans text-white text-7xl text-center py-8">
             Our Story
           </h1>
+          <div className="flex justify-center items-center py-12">
+            <ReactPlayer url="https://youtu.be/mUwjWs9s_uo" />
+          </div>
           <div className="flex flex-col items-center">
             <div className="photoframe p-3">
               <div className="photo p-2">

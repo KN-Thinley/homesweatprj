@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Chestsvg from "../components/svg/Chestsvg";
+import ChestPosts from "./ChestPost";
 
 const Chest = () => {
   return (
@@ -14,7 +15,9 @@ const Chest = () => {
           </h1>
         </div>
       </div>
-      <div className="chest-workout-list"></div>
+      <div className="chest-workout-list">
+        <ChestPosts />
+      </div>
       <Footer />
     </>
   );

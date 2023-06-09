@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Backsvg from "../components/svg/Backsvg";
+import BacksList from "./BacksList";
 
 const Backs = () => {
   return (
@@ -14,7 +15,9 @@ const Backs = () => {
           </h1>
         </div>
       </div>
-      <div className="chest-workout-list"></div>
+      <div className="chest-workout-list">
+        <BacksList />
+      </div>
       <Footer />
     </>
   );

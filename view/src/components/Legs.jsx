@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Legsvg from "../components/svg/Legsvg";
+import LegsList from "./LegsList";
 
 const Legs = () => {
   return (
@@ -14,7 +15,9 @@ const Legs = () => {
           </h1>
         </div>
       </div>
-      <div className="chest-workout-list"></div>
+      <div className="chest-workout-list">
+        <LegsList />
+      </div>
       <Footer />
     </>
   );

@@ -28,6 +28,12 @@ nav {
   border-radius: 2rem 0 0 2rem;
   padding-right: 3rem;
 }
+.ul-list {
+  background-color: #3f1d29;
+  padding-left: 2rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  padding-right: 3rem;
+}
 
 .get-started {
   background-color: #fd0054;

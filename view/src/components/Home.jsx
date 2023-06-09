@@ -75,7 +75,7 @@ const Home = () => {
             </p>
           </div>
           <button className="btn read-more-btn py-2 px-6">
-            <a href="" className="text-white text-3xl">
+            <a href="/login" className="text-white text-3xl">
               <div className="inline-block read-more">Read More</div>
             </a>
           </button>
@@ -103,7 +103,7 @@ const Home = () => {
                 </p>
                 <h2 className="flex pt-8 text-3xl">
                   CHECK OUR BLOG <span className="line px-6">━━━━━━━</span>
-                  <a href="">
+                  <a href="/login">
                     <input
                       type="button"
                       className="blog-btn px-8 text-2xl"
@@ -125,7 +125,7 @@ const Home = () => {
               <h1 className="underline text-center text-white text-3xl p-5">
                 WORKOUTS WE OFFER
               </h1>
-              <a href="">
+              <a href="/login">
                 <input
                   type="button"
                   className="text-center click-here py-1 px-8"

@@ -1,4 +1,3 @@
-// import "./login-form-validation";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -18,6 +17,7 @@ const Login = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    PostData();
   };
 
   useEffect(() => {
@@ -39,16 +39,39 @@ const Login = () => {
     }
     if (!values.password) {
       errors.password = "Password is required!";
-    } else if (values.password.length < 4) {
-      errors.password = "Passwords must be greater than 4 characters";
-    } else navigate("/user");
+    } else if (values.password.length < 8) {
+      errors.password = "Passwords must be greater than 8 characters";
+    }
     return errors;
+  };
+
+  const PostData = async () => {
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+
+    const { email, password } = formValues;
+
+    const res = await fetch("/user/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    if (res.ok) {
+      navigate("/user");
+    } else {
+      setFormValues(initialValues);
+    }
   };
 
   return (
     <>
       <div className="container mx-auto h-screen flex justify-center items-center">
         <form
+          method="POST"
           onSubmit={handleSubmit}
           className="inline-block login-form px-28 py-16"
         >
@@ -86,7 +109,10 @@ const Login = () => {
             </div>
           </div>
           <div className="sign-in-forgot-password flex flex-col">
-            <button className="text-center text-white font-sans p-3 sign-in">
+            <button
+              type="submit"
+              className="text-center text-white font-sans p-3 sign-in"
+            >
               Sign In
             </button>
           </div>

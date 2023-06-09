@@ -1,68 +1,55 @@
+// import AdminNav from "./AdminNav";
+// import Footer from "../Footer";
+// import BlogList from "./Bloglist";
+// import AdminBlogForm from "./AdminBlogForm";
+
+// function AdminBlogs() {
+//   return (
+//     <>
+//       <AdminNav />
+//       <AdminBlogForm />
+//       <BlogList />
+//       <Footer />
+//     </>
+//   );
+// }
+
+// export default AdminBlogs;
+
+import "./admin.css";
 import React, { useState } from "react";
+import AdminNav from "./AdminNav";
+import Footer from "../Footer";
+import BlogList from "./Bloglist";
+import AdminBlogForm from "./AdminBlogForm";
 
 function AdminBlogs() {
-  const [blogTitle, setBlogTitle] = useState("");
-  const [blogImage, setBlogImage] = useState(null);
-  const [blogDescription, setBlogDescription] = useState("");
-  const [previewImage, setPreviewImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleTitleChange = (event) => {
-    setBlogTitle(event.target.value);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setBlogImage(file);
-    setPreviewImage(URL.createObjectURL(file));
-  };
-
-  const handleDescriptionChange = (event) => {
-    setBlogDescription(event.target.value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
-    // Create FormData and append form fields
-    const formData = new FormData();
-    formData.append("title", blogTitle);
-    formData.append("image", blogImage);
-    formData.append("description", blogDescription);
-
-    // Send formData to the server for saving in the database
-    // You can use Axios, fetch, or any other HTTP client to send a POST request
-    // Pass formData as the request body
-    // After successful upload, you can handle any response from the server
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={blogTitle}
-            onChange={handleTitleChange}
-          />
+    <>
+      <AdminNav />
+      <button className="add-blog-button" onClick={handleOpenModal}>
+        Add Blog
+      </button>
+      <BlogList />
+      <Footer />
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <AdminBlogForm closeModal={handleCloseModal} />
+          </div>
         </div>
-        <div>
-          <label htmlFor="image">Image:</label>
-          {previewImage && <img src={previewImage} alt="Preview" />}
-          <input type="file" id="image" onChange={handleImageChange} />
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            value={blogDescription}
-            onChange={handleDescriptionChange}
-          />
-        </div>
-        <button type="submit">Upload</button>
-      </form>
-    </div>
+      )}
+    </>
   );
 }
 

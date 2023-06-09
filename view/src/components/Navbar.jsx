@@ -1,6 +1,5 @@
 import logo from "../assests/homesweatLogo.png";
 import { Link } from "react-router-dom";
-import "./style.css";
 const Navbar = () => {
   return (
     <>

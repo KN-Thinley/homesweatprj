@@ -33,7 +33,7 @@ const Workouts = () => {
               <Link to="/workouts/abs">
                 <h1>Abs</h1>
               </Link>
-              <Link to="/workouts/backs">
+              <Link to="/workouts/back">
                 <h1>Back</h1>
               </Link>
               <Link to="/workouts/legs">

@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Abssvg from "../components/svg/Abssvg";
 import Footer from "./Footer";
+import AbsList from "./AbsList";
 
 const Abs = () => {
   return (
@@ -14,7 +15,9 @@ const Abs = () => {
           </h1>
         </div>
       </div>
-      <div className="chest-workout-list"></div>
+      <div className="chest-workout-list">
+        <AbsList />
+      </div>
       <Footer />
     </>
   );
