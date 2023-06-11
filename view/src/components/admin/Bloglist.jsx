@@ -59,6 +59,7 @@ const BlogList = () => {
       try {
         const response = await fetch("/admin/Get_allBlog");
         const data = await response.json();
+        console.log("data from api:", data);
         setBlogs(data);
       } catch (error) {
         console.error(error);

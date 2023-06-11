@@ -33,9 +33,13 @@ const loginUser = async (req, res) => {
 
     const token = signToken(user._id);
     res.cookie(`session_id`, token);
-
-    // Check if user is confirm
-    res.status(200).send({ message: user });
+    res.status(200).send({
+      message: "Login successful",
+      token,
+      data: {
+        userData: user,
+      },
+    });
   } catch (e) {
     res.status(400).send({ message: e });
   }
@@ -50,4 +54,80 @@ const logoutUser = (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, logoutUser };
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteUser = await userModel.findByIdAndRemove(id);
+
+    if (!deleteUser) {
+      return res.status(404).json({ message: "user not found" });
+    }
+    res.json({ message: "user deleted successfully " });
+  } catch (err) {
+    res.status(500)({
+      error: err.message,
+    });
+  }
+};
+
+const getSingleUser = async (req, res) => {
+  try {
+    // const { id } = req.params;
+    // const user = await userModel.findById(id);
+
+    // if (!user) {
+    //   return res.status(404).json({ message: "user not found" });
+    // }
+    res.json(req.user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await userModel.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateUser = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const { name, height, weight } = req.body;
+    let profilePic;
+
+    // Check if a new profile picture file is provided
+    if (req.file) {
+      // Set the profile picture file path or URL in the database
+      profilePic = req.file.filename;
+    }
+
+    const updateUser = await userModel.findByIdAndUpdate(_id, {
+      name,
+      height,
+      weight,
+      profilePic,
+    });
+
+    if (!updateUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(updateUser);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  registerUser,
+  loginUser,
+  logoutUser,
+  deleteUser,
+  getSingleUser,
+  getAllUsers,
+  updateUser,
+};

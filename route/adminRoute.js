@@ -32,6 +32,7 @@ router.get("/admin/logout", adminAuth, controller1.logoutAdmin);
 
 router.post(
   "/admin/blog_post",
+  adminAuth,
   upload.single("blog_image"),
   controller2.createBlogPost
 );

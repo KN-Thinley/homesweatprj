@@ -49,10 +49,10 @@ const getBlogPost = async (req, res) => {
 const updateBlogPost = async (req, res) => {
   try {
     const { id } = req.params;
-    const { blog_post, blog_image, description } = req.body;
+    const { blog_post, blog_short_desp, blog_image, description } = req.body;
     const updatedBlogPost = await blog.findByIdAndUpdate(
       id,
-      { blog_post, blog_image, description },
+      { blog_post, blog_short_desp, blog_image, description },
       { new: true }
     );
     if (!updatedBlogPost) {

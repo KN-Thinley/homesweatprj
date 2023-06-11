@@ -45,21 +45,9 @@ function App() {
       <Route path="/height" element={<Height />} />
       <Route path="/weight" element={<Weight />} />
       <Route path="/pushupsandsquats" element={<PushupsandSquats />} />
-      <Route path="/user" element={<User />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/faq" element={<Faq />} />
-      <Route path="/blogs" element={<Blogs />} />
-      <Route path="/workouts" element={<Workouts />} />
-      <Route path="/workouts/chest" element={<Chest />} />
-      <Route path="/workouts/back" element={<Backs />} />
-      <Route path="/workouts/arms" element={<Arms />} />
-      <Route path="/workouts/legs" element={<Legs />} />
-      <Route path="/workouts/abs" element={<Abs />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/blog/" element={<AdminBlogs />} />
       <Route path="/admin/workouts/" element={<AdminVideos />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/blog/:id" element={<SingleBlogPage />} />
       <Route path="/admin/workouts/chest" element={<ChestPost />} />
       <Route path="/admin/workouts/abs" element={<AbsPost />} />
       <Route path="/admin/workouts/arms" element={<ArmsPost />} />
@@ -70,6 +58,19 @@ function App() {
         path="/videos/chest/:videoId"
         render={(props) => <SingleVideoPage {...props} />}
       />
+
+      <Route path="/user" element={<User />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/faq" element={<Faq />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/workouts" element={<Workouts />} />
+      <Route path="/workouts/chest" element={<Chest />} />
+      <Route path="/workouts/back" element={<Backs />} />
+      <Route path="/workouts/arms" element={<Arms />} />
+      <Route path="/workouts/legs" element={<Legs />} />
+      <Route path="/workouts/abs" element={<Abs />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/blog/:id" element={<SingleBlogPage />} />
     </Routes>
   );
 }

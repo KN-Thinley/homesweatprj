@@ -39,14 +39,16 @@ const userAuth = async (req, res, next) => {
     } else {
       throw "";
     }
-    const decode = jwt.verify(token, process.env.JWT_SECRET);
 
+    const decode = jwt.verify(token, process.env.JWT_SECRET);
     const admin = await uModel.findOne({ _id: decode.id });
+
     if (!admin) {
       throw "";
     }
+
     req.token = token;
-    req.user = user;
+    req.user = admin;
     next();
   } catch (e) {
     res.status(401).send({ error: "please login" });

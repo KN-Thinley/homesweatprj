@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
   profilePic: {
-    type: Buffer,
+    type: String,
     default: "pic",
   },
   name: {
