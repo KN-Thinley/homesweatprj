@@ -25,13 +25,15 @@ const VideoList = () => {
         <h1 className="font-sans text-4xl text-white text-center">
           Available Videos
         </h1>
-        <div className="video-list grid lg:grid-cols-2 font-sans gap-4 pt-12">
+        <div className="video-list grid lg:grid-cols-3 font-sans gap-4 pt-12">
           {videos.map((video) => (
             <div
               key={video._id}
               className="flex flex-col justify-center items-center"
             >
-              <ReactPlayer url={video.video_url} controls />
+              <div className="video" style={{ maxWidth: "800px" }}>
+                <ReactPlayer url={video.video_url} controls width="100%" />
+              </div>
               <h2 className="text-white text-3xl font-sans">
                 {video.video_title}
               </h2>

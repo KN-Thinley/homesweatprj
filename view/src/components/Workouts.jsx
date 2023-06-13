@@ -19,11 +19,11 @@ const Workouts = () => {
           <h1 className="font-sans text-white text-center text-4xl pt-32">
             Which muscle would you like to train?
           </h1>
-          <div className="workout-svg grid grid-cols-5 p-16">
+          <div className="workout-svg grid justify-center items-center lg:grid-cols-5 p-16">
             <div className="col1 col-span-2 text-white text-center">
               <Front />
             </div>
-            <div className="col2 text-white text-center flex flex-col text-4xl gap-12 justify-center">
+            <div className="col2 text-white text-center flex flex-col text-4xl gap-12 justify-center items-center">
               <Link to="/workouts/chest">
                 <h1>Chest</h1>
               </Link>

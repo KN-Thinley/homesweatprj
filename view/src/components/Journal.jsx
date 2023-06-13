@@ -367,7 +367,7 @@ const Journal = () => {
       <style jsx>
         {`
           .selected {
-            border-color: red;
+            border-color: #3b82f6;
           }
         `}
       </style>

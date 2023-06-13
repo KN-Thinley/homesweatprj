@@ -2,8 +2,7 @@ const videoModel = require("../model/videoModel");
 
 const addVideo = async (req, res) => {
   try {
-    const { video_title, video_url, video_description, workout_type } =
-      req.body;
+    const { video_title, video_url, video_description, workout_type } = req.body;
     console.log("At try");
     const newVideo = new videoModel({
       video_title,

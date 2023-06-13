@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import "./admin.css";
 
 const AdminVideoForm = ({ closeModal }) => {
-  const initialValues = {
-    video_title: "",
-    video_url: "",
-    video_description: "",
-    workout_type: "",
-  };
-
-  const [formValues, setFormValues] = useState(initialValues);
+  const [formValues, setFormValues] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -69,11 +62,11 @@ const AdminVideoForm = ({ closeModal }) => {
       });
       if (res.status === 200) {
         alert("done");
-        setFormValues(initialValues);
+        setFormValues({});
       } else {
         console.log(res.body);
         alert("didn't");
-        setFormValues(initialValues);
+        setFormValues({});
       }
     } catch (error) {
       console.error(error);
@@ -81,7 +74,7 @@ const AdminVideoForm = ({ closeModal }) => {
   };
 
   const handleClose = () => {
-    setFormValues(initialValues);
+    setFormValues({});
     closeModal();
   };
   return (

@@ -14,7 +14,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="ourstory pt-32">
-          <h1 className="font-sans text-white text-7xl text-center py-8">
+          <h1 className="font-sans text-white text-3xl lg:text-7xl text-center py-8">
             Our Story
           </h1>
           <div className="flex justify-center items-center py-12">
@@ -29,7 +29,7 @@ const AboutUs = () => {
           </div>
           <div className="passage-container flex justify-center pt-8">
             <div className="passage text-white text-center pt-4">
-              <p className="p text-2xl font-sans text-gray-500">
+              <p className="p  text-lg lg:text-2xl font-sans text-gray-500">
                 Our story began with a simple desire to make fitness accessible
                 to everyone, regardless of their location or financial
                 situation. We believed that no one should be held back from
@@ -47,12 +47,12 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="ourValues pt-32">
-          <h1 className="font-sans text-white text-7xl text-center py-8">
+          <h1 className="font-sans text-white text-3xl lg:text-7xl text-center py-8">
             Our Values
           </h1>
-          <div className="grid grid-cols-2 gap-52 px-40 py-8">
+          <div className="grid lg:grid-cols-2 gap-52 px-24 lg:px-40 py-8">
             <div className="valuefirst ">
-              <h1 className="text-white text-start font-sans text-4xl pb-8">
+              <h1 className="text-white text-start font-sans text-xl lg:text-4xl pb-8">
                 Accessibility
               </h1>
               <p className="text-start font-sans text-xl  text-gray-500">
@@ -63,20 +63,22 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="valuesecond">
-              <h1 className=" text-start font-sans text-4xl pb-8">
+              <h1 className=" text-start font-sans text-xl lg:text-4xl pb-8">
                 Inclusivity
               </h1>
-              <p className=" text-gray-500 text-start font-sans text-xl">
+              <p className=" text-gray-500 text-start font-sans text-sm lg:text-xl">
                 We are committed to creating a welcoming and supportive
                 community where everyone feels valued and included, regardless
                 of their race, gender, sexuality, or ability.
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-52 px-40 py-8">
+          <div className="grid lg:grid-cols-2 gap-52 px-24 lg:px-40 py-8">
             <div className="valuefirst ">
-              <h1 className=" text-start font-sans text-4xl pb-8">Quality</h1>
-              <p className=" text-gray-500 text-start font-sans text-xl">
+              <h1 className=" text-start font-sans text-xl lg:text-4xl pb-8">
+                Quality
+              </h1>
+              <p className=" text-gray-500 text-start font-sans text-sm lg:text-xl">
                 We understand that our customers come to us with unique needs
                 and goals, which is why we prioritize offering a diverse range
                 of high-quality products and services. From state-of-the-art
@@ -87,10 +89,10 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="valuesecond">
-              <h1 className=" text-start font-sans text-4xl pb-8">
+              <h1 className=" text-start font-sans text-xl lg:text-4xl pb-8">
                 Innovation
               </h1>
-              <p className=" text-gray-500 text-start font-sans text-xl">
+              <p className=" text-gray-500 text-start font-sans text-sm lg:text-xl">
                 We are committed to constantly pushing the boundaries of what is
                 possible in the fitness industry. We invest in the latest
                 technology, equipment, and research to develop innovative

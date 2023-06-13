@@ -38,17 +38,17 @@ router.post(
 );
 
 //get single blog
-router.get("/admin/get_blog/:id", adminAuth, controller2.getBlogPost);
+router.get("/admin/get_blog/:id", controller2.getBlogPost);
 router.delete("/admin/blog_delete/:id", adminAuth, controller2.deleteBlogPost);
 router.patch("/admin/blog_update/:id", adminAuth, controller2.updateBlogPost);
-router.get("/admin/Get_allBlog", adminAuth, controller2.getAllBlogPosts);
+router.get("/admin/Get_allBlog", controller2.getAllBlogPosts);
 
 //video routes
-router.post("/admin/add_video", adminAuth, controller3.addVideo);
+router.post("/admin/add_video", controller3.addVideo);
 router.put("/admin/update_video/:id", adminAuth, controller3.updateVideo);
 router.delete("/admin/delete_video/:id", adminAuth, controller3.deleteVideo);
-router.get("/admin/getone_video/:id", adminAuth, controller3.getOneVideo);
-router.get("/admin/getAll/:workout_type", adminAuth, controller3.getAllVideo);
-router.get("/admin/getAll", adminAuth, controller3.getEveryVideo);
+router.get("/admin/getone_video/:id", controller3.getOneVideo);
+router.get("/admin/getAll/:workout_type", controller3.getAllVideo);
+router.get("/admin/getAll", controller3.getEveryVideo);
 
 module.exports = router;

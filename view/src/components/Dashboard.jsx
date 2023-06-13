@@ -5,15 +5,15 @@ import Calendar from "./userCalendar/Calendar";
 const Dashboard = () => {
   return (
     <>
-      <div className="user-dashboard grid grid-cols-12">
-        <div className="Profile col-span-2">
+      <div className="user-dashboard grid  md: lg:grid-cols-12">
+        <div className="Profile lg:col-span-2">
           <UserProfile />
         </div>
-        <div className="TodoList col-span-6 flex flex-col justify-between h-screen">
+        <div className="TodoList lg:col-span-6 flex flex-col justify-between h-screen">
           <TodoList className="" />
           <Journal className="flex-grow overflow-y-auto" />
         </div>
-        <div className="Calendar col-span-4 bg-green-50">
+        <div className="Calendar border-2 shadow-sm shadow-slate-400 lg:col-span-4">
           <Calendar />
         </div>
       </div>

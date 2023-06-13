@@ -6,8 +6,8 @@ const cookieParser = require("cookie-parser");
 //directory match...
 const path = require("path");
 
-app.use(express.json({ limit: "25mb" }));
-app.use(express.urlencoded({ limit: "25mb", extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //serves static page
 app.use(express.static(path.join(__dirname, "/view")));

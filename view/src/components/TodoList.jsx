@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsTrashFill } from "react-icons/bs";
+import { BsPlusSquareFill } from "react-icons/bs";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -37,7 +38,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="main-cont px-12">
+    <div className="main-cont px-12 border">
       <h1 className="text-4xl font-bold pt-6 text-center">Todo List</h1>
       <div className="flex mb-4">
         <input
@@ -46,12 +47,6 @@ const TodoList = () => {
           onChange={handleInputChange}
           className="border border-gray-300 p-2 flex-grow mr-2 font-sans"
         />
-        <button
-          onClick={handleAddTodo}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Add
-        </button>
       </div>
       <ul className="todo-list relative flex-grow h-1/2 overflow-y-auto">
         {todos.map((todo, index) => (
@@ -82,6 +77,15 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
+      <div className="addbtn flex justify-center items-center">
+        <button
+          onClick={handleAddTodo}
+          className="px-4 py-2 rounded -mt-2 focus:outline-none"
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          <BsPlusSquareFill className="text-blue-500 text-4xl" />
+        </button>
+      </div>
     </div>
   );
 };

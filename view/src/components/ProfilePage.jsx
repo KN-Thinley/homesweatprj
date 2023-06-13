@@ -117,9 +117,9 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className="profile border-r-2 border-red-400 h-screen">
+      <div className="profile border-r shadow-md shadow-slate-500  h-screen">
         <Link to="/user">
-          <div className="logo flex justify-center items-center border-b-2 border-black p-4">
+          <div className="logo flex justify-center items-center border-b border-black p-4">
             <img src={Logo} alt="homesweat logo" className="h-8 text-black" />
           </div>
         </Link>
@@ -217,21 +217,21 @@ const UserProfile = () => {
           <div className="settings flex flex-col justify-center items-center gap-4">
             {editMode ? (
               <button
-                className="border-black border-2 font-sans px-16 py-2 rounded"
+                className="border-black border font-sans px-16 py-2 rounded"
                 onClick={handleSave}
               >
                 Save
               </button>
             ) : (
               <button
-                className="border-black border-2 font-sans px-16 py-2 rounded"
+                className="border-black border font-sans px-16 py-2 rounded"
                 onClick={handleEdit}
               >
                 Edit
               </button>
             )}
             <button
-              className="border-black border-2 font-sans px-16 py-2 rounded"
+              className="border-gray-800 border font-sans px-12 py-2 rounded"
               onClick={handleLogout}
             >
               Log Out

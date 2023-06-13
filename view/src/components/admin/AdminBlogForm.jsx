@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import "./admin.css";
 
-const AdminBlogForm = ({ closeModal }) => {
-  const initialValues = {
-    blog_title: "",
-    blog_short_desp: "",
-    blog_image: "",
-    description: "",
-  };
-
-  const [formValues, setFormValues] = useState(initialValues);
+const AdminBlogForm = ({ closeModal, initialValues }) => {
+  const [formValues, setFormValues] = useState(initialValues || {});
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
@@ -67,19 +60,27 @@ const AdminBlogForm = ({ closeModal }) => {
     formData.append("blog_image", blog_image);
     formData.append("description", description);
     try {
-      const res = await fetch("/admin/blog_post", {
-        method: "POST",
-        body: formData,
-      });
-      if (res.ok) {
-        alert("done");
-        setFormValues(initialValues);
-        setImagePreview(null);
+      let res;
+
+      if (initialValues) {
+        // Update request if initialValues exist
+        res = await fetch(`/admin/blog_update/${initialValues._id}`, {
+          method: "PATCH",
+          body: formData,
+        });
       } else {
-        console.log(res.body);
-        alert("didn't");
-        setFormValues(initialValues);
-        setImagePreview(null);
+        // Create request if initialValues doesn't exist
+        res = await fetch("/admin/blog_post", {
+          method: "POST",
+          body: formData,
+        });
+      }
+
+      if (res.ok) {
+        // Handle successful update or create...
+        closeModal(); // Close the modal after successful update or create
+      } else {
+        // Handle update or create failure...
       }
     } catch (error) {
       console.error(error);
